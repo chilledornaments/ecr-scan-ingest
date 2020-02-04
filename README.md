@@ -30,3 +30,17 @@ Sample EventBridge Event:
     }
 }
 ```
+
+## IAM
+
+Lambda role:
+
+```json
+
+```
+
+Lambda policy:
+
+```json
+
+```
