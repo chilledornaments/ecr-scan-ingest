@@ -1,5 +1,7 @@
 # ecr-scan-ingest
 
+A Lambda function to send Slack alerts based on ECR scan findings
+
 ## AWS Docs
 
 [Link](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ecr-eventbridge.html)

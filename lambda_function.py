@@ -49,8 +49,6 @@ def lambda_handler(event, context):
 
     findings_json = {}
 
-    #event_json = json.loads(event)
-
     repo = event['detail']['repository-name']
 
     if event['detail']['scan-status'] != "COMPLETE":
