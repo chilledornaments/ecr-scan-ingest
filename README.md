@@ -2,6 +2,12 @@
 
 A Lambda function to send Slack alerts based on ECR scan findings
 
+## Notes
+
+This uses the `requests` library, which is not natively available in Lambda functions.
+
+Run `./bundle.sh` to build your zip file to upload to Lambda. The artifact will be saved to `/tmp/ecr-scan-lambda.zip`
+
 ## AWS Docs
 
 [Link](https://docs.aws.amazon.com/AmazonECR/latest/userguide/ecr-eventbridge.html)
