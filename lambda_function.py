@@ -37,6 +37,7 @@ def lambda_handler(event, context):
     repo = event['detail']['repository-name']
 
     if event['detail']['scan-status'] != "COMPLETE":
+        print(f"Scan status {event['detail']['scan-status']}")
         return "Ok"
 
     findings = event['detail'].get('finding-severity-counts')
