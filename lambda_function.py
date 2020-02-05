@@ -32,12 +32,17 @@ def lambda_handler(event, context):
 
     findings_json = {}
 
-    event_json = json.loads(event)
+    #event_json = json.loads(event)
 
-    repo = event_json['detail']['repository-name']
-    findings = event_json['detail'].get('finding-severity-counts')
+    repo = event['detail']['repository-name']
+
+    if event['detail']['scan-status'] != "COMPLETE":
+        return "Ok"
+
+    findings = event['detail'].get('finding-severity-counts')
 
     if findings is None:
+        print("No findings")
         pass
 
     else:
