@@ -35,14 +35,15 @@ def lambda_handler(event, context):
     event_json = json.loads(event)
 
     repo = event_json['detail']['repository-name']
-    findings = event_json['detail']['finding-severity-counts']
+    findings = event_json['detail'].get('finding-severity-counts')
 
-    if findings.get("CRITICAL") is not None:
+    if findings is None:
+        pass
 
-        findings_json['CRITICAL'] = findings.get("CRITICAL")
-
-    if findings.get("MEDIUM") is not None:
-        
-        findings_json['CRITICAL'] = findings.get("CRITICAL")
+    else:
+        if findings.get("CRITICAL") is not None:
+            findings_json['CRITICAL'] = findings.get("CRITICAL")
+        if findings.get("MEDIUM") is not None:
+            findings_json['CRITICAL'] = findings.get("CRITICAL")
 
     slack_alert(repo, findings_json)
