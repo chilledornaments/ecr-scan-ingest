@@ -36,11 +36,20 @@ Sample EventBridge Event:
 Lambda role:
 
 ```json
-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "lambda.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
 ```
 
 Lambda policy:
 
-```json
-
-```
+You can use the `AWSLambdaBasicExecutionRole` policy.
